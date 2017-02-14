@@ -86,12 +86,12 @@
 
 <meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="NGeLB_Blog">
+<meta property="og:title" content="NGeLB'S BLOG">
 <meta property="og:url" content="https://ngelb.github.io/page/3/index.html">
-<meta property="og:site_name" content="NGeLB_Blog">
+<meta property="og:site_name" content="NGeLB'S BLOG">
 <meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NGeLB_Blog">
+<meta name="twitter:title" content="NGeLB'S BLOG">
 <meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> NGeLB_Blog </title>
+  <title> NGeLB'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +159,7 @@
   <div class="custom-logo-site-title">
     <a href="/NGeLBGithub.io/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">NGeLB_Blog</span>
+      <span class="site-title">NGeLB'S BLOG</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -260,9 +260,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="NGeLB_Blog">
+    <meta itemprop="name" content="NGeLB'S BLOG">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="NGeLB_Blog" src="">
+      <img style="display:none;" itemprop="url image" alt="NGeLB'S BLOG" src="">
     </span>
   </span>
 
@@ -385,9 +385,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="NGeLB_Blog">
+    <meta itemprop="name" content="NGeLB'S BLOG">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="NGeLB_Blog" src="">
+      <img style="display:none;" itemprop="url image" alt="NGeLB'S BLOG" src="">
     </span>
   </span>
 
@@ -510,9 +510,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="NGeLB_Blog">
+    <meta itemprop="name" content="NGeLB'S BLOG">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="NGeLB_Blog" src="">
+      <img style="display:none;" itemprop="url image" alt="NGeLB'S BLOG" src="">
     </span>
   </span>
 
@@ -635,9 +635,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="NGeLB_Blog">
+    <meta itemprop="name" content="NGeLB'S BLOG">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="NGeLB_Blog" src="">
+      <img style="display:none;" itemprop="url image" alt="NGeLB'S BLOG" src="">
     </span>
   </span>
 
@@ -760,9 +760,9 @@
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="NGeLB_Blog">
+    <meta itemprop="name" content="NGeLB'S BLOG">
     <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="NGeLB_Blog" src="">
+      <img style="display:none;" itemprop="url image" alt="NGeLB'S BLOG" src="">
     </span>
   </span>
 
@@ -777,7 +777,7 @@
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2015/09/10/堆和栈的区别/" itemprop="url">
-                  堆和栈的区别
+                  『转载』堆和栈的区别
                 </a>
               
             
@@ -831,8 +831,14 @@
       
         
           
-          
-          
+          一、预备知识-程序的内存分配
+查看转载来源
+一个由C/C++编译的程序占用的内存分为以下几个部分：
+
+栈区（stack）- 由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。在执行函数时，函数内局部变量的储存单元都可以在栈上创建，函数执行结束时，这些储存单元自动被释放。栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。
+堆区（heap）- 从堆上分配，亦称动态内存分配。程序在运行的时候用malloc或new申请任意多少的内存，程序员自己负责在何时用free或delete释放内存。动态内存的生存期由我们决定，使用非常灵活，但是问题也最多。一般由程序员分配、释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。
+全局区（静态区）（static）- 从静态存储区域分配。内存在程序编译的时
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2015/09/10/堆和栈的区别/#more" rel="contents">
