@@ -902,7 +902,7 @@
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2016/01/02/Xcode中拖入资源弹出的窗口/" itemprop="url">
-                  Xcode中拖入资源弹出的窗口
+                  『转载』Xcode中拖入资源弹出的窗口
                 </a>
               
             
@@ -956,8 +956,15 @@
       
         
           
-          
-          
+          如果将资源文件、文件夹拖入项目中，那么Xcode会弹出一个窗口：
+Destination：意思是说是否要在项目目录下复制资源  
+如果选中Copy items if needed，那么在项目目录下（这里说的是真是目录，不是Xcode左侧那个），会拷贝一份与拖入的资源相同的资源。  
+如果未选中，则不会进行拷贝，而是对拖入的资源进行引用。  
+这与在代码中进行传值和传址很像。如果选中，则像传值，会拷贝一份，与原来的资源互不影响；如果未选中，则像传址，相当于对原来的资源进行引用。  
+事实上如果未选中，会带来一些问题。比如代码和资源分开（比如不在一个电脑上），那么对原来的资源的引用就失效了，那么资源也就不能用了。  
+并且在删除项目资源的时候也要注意。当删除资源时，会弹出一盒窗口，让我们选择是删除引用还是移到废纸篓。  
+如果选中Copy items if needed，那么会有一份拷贝，所以
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2016/01/02/Xcode中拖入资源弹出的窗口/#more" rel="contents">
@@ -1168,7 +1175,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-11T18:53:36Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-12T02:53:36+08:00">
                 2015-12-11
               </time>
             
