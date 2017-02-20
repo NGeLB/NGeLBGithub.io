@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="解析手机里面的其他app软件的事相信大家都干过，小编就经常解析那些大型app来“借用”它们的图片，最常用的工具就是iTools。当我们用iTools解析某个app时会发现有个后缀为.ipa的文件，这个.ipa后缀的文件里面就包含我们想要的资源（其实.ipa包就类似安卓的apk包）。.ipa文件包除了包含app的资源，最大的用处是可以给已经越狱过了的iPhone直接安装该程序，这对软件开发过程中的测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode程序打包 .ipa">
+<meta property="og:title" content="『转载』Xcode程序打包 .ipa">
 <meta property="og:url" content="https://ngelb.github.io/2015/11/11/Xcode程序打包-ipa/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T06:45:11.000Z">
+<meta property="og:description" content="解析手机里面的其他app软件的事相信大家都干过，小编就经常解析那些大型app来“借用”它们的图片，最常用的工具就是iTools。当我们用iTools解析某个app时会发现有个后缀为.ipa的文件，这个.ipa后缀的文件里面就包含我们想要的资源（其实.ipa包就类似安卓的apk包）。.ipa文件包除了包含app的资源，最大的用处是可以给已经越狱过了的iPhone直接安装该程序，这对软件开发过程中的测">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-c968e329fd9cf8c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-7cbe84b6bdbc768a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-b383a48b0571b087.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-68251da9082cdcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-ada2a354d79cc366.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-8d88e7ec42d5b151.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-81178abd6aef7b1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-447c0eb70df71585.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-8b8fda1580b3ef0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-3ba8a68c08316710.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/300046-152569ec4b9cb867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-20T05:51:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode程序打包 .ipa">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:title" content="『转载』Xcode程序打包 .ipa">
+<meta name="twitter:description" content="解析手机里面的其他app软件的事相信大家都干过，小编就经常解析那些大型app来“借用”它们的图片，最常用的工具就是iTools。当我们用iTools解析某个app时会发现有个后缀为.ipa的文件，这个.ipa后缀的文件里面就包含我们想要的资源（其实.ipa包就类似安卓的apk包）。.ipa文件包除了包含app的资源，最大的用处是可以给已经越狱过了的iPhone直接安装该程序，这对软件开发过程中的测">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/300046-c968e329fd9cf8c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -127,7 +139,7 @@
 
 
 
-  <title> Xcode程序打包 .ipa | NGeLB'S BLOG </title>
+  <title> 『转载』Xcode程序打包 .ipa | NGeLB'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +286,7 @@
             
             
               
-                Xcode程序打包 .ipa
+                『转载』Xcode程序打包 .ipa
               
             
           </h1>
@@ -325,7 +337,21 @@
       
 
       
-        
+        <p>解析手机里面的其他app软件的事相信大家都干过，小编就经常解析那些大型app来“借用”它们的图片，最常用的工具就是iTools。当我们用iTools解析某个app时会发现有个后缀为.ipa的文件，这个.ipa后缀的文件里面就包含我们想要的资源（<strong>其实.ipa包就类似安卓的apk包</strong>）。.ipa文件包除了包含app的资源，最大的用处是可以给已经<strong>越狱过了的iPhone</strong>直接安装该程序，这对软件开发过程中的测试工作起到了很大的作用，下面就教大家怎么来给程序打包成.ipa。</p>
+<h4 id="方法（一）："><a href="#方法（一）：" class="headerlink" title="方法（一）："></a>方法（一）：</h4><h5 id="1-打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）"><a href="#1-打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）" class="headerlink" title="1. 打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）"></a>1. 打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-c968e329fd9cf8c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图1"></p>
+<h5 id="2-Edit-scheme"><a href="#2-Edit-scheme" class="headerlink" title="2. Edit scheme"></a>2. Edit scheme</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-7cbe84b6bdbc768a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图2"></p>
+<h5 id="3-选择Release模式"><a href="#3-选择Release模式" class="headerlink" title="3. 选择Release模式"></a>3. 选择Release模式</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-b383a48b0571b087.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="4-command-B-编译（最好先clean下程序）"><a href="#4-command-B-编译（最好先clean下程序）" class="headerlink" title="4. command + B 编译（最好先clean下程序）"></a>4. command + B 编译（最好先clean下程序）</h5><h5 id="5-编译完成后会发现Products文件夹下的-app文件由红色变成了黑色"><a href="#5-编译完成后会发现Products文件夹下的-app文件由红色变成了黑色" class="headerlink" title="5. 编译完成后会发现Products文件夹下的.app文件由红色变成了黑色"></a>5. 编译完成后会发现Products文件夹下的.app文件由红色变成了黑色</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-68251da9082cdcea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="6-点击这个-app文件-show-in-fider"><a href="#6-点击这个-app文件-show-in-fider" class="headerlink" title="6. 点击这个.app文件 show in fider"></a>6. 点击这个.app文件 show in fider</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-ada2a354d79cc366.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="7-在桌面新建个Payload文件夹将-app文件放进去，然后压缩改文件夹。"><a href="#7-在桌面新建个Payload文件夹将-app文件放进去，然后压缩改文件夹。" class="headerlink" title="7. 在桌面新建个Payload文件夹将.app文件放进去，然后压缩改文件夹。"></a>7. 在桌面新建个Payload文件夹将.app文件放进去，然后压缩改文件夹。</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-8d88e7ec42d5b151.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="8-压缩完之后才可以改成你想要的名字，改完名称后直接把-zip后缀改成-ipa后缀就OK了"><a href="#8-压缩完之后才可以改成你想要的名字，改完名称后直接把-zip后缀改成-ipa后缀就OK了" class="headerlink" title="8. 压缩完之后才可以改成你想要的名字，改完名称后直接把.zip后缀改成.ipa后缀就OK了"></a>8. 压缩完之后才可以改成你想要的名字，改完名称后直接把.zip后缀改成.ipa后缀就OK了</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-81178abd6aef7b1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="方法（二）："><a href="#方法（二）：" class="headerlink" title="方法（二）："></a>方法（二）：</h4><p>除了上面这种方法我们还可以利用iTunes来生成.ipa文件。</p>
+<h5 id="1-打开iTunes选择应用程序"><a href="#1-打开iTunes选择应用程序" class="headerlink" title="1. 打开iTunes选择应用程序"></a>1. 打开iTunes选择应用程序</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-447c0eb70df71585.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="2-直接把-app包拖进去"><a href="#2-直接把-app包拖进去" class="headerlink" title="2.直接把.app包拖进去"></a>2.直接把.app包拖进去</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-8b8fda1580b3ef0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="3-然后直接-show-in-finder-发现iTunes已经帮我们打包好了。"><a href="#3-然后直接-show-in-finder-发现iTunes已经帮我们打包好了。" class="headerlink" title="3. 然后直接 show in finder 发现iTunes已经帮我们打包好了。"></a>3. 然后直接 show in finder 发现iTunes已经帮我们打包好了。</h5><p><img src="http://upload-images.jianshu.io/upload_images/300046-3ba8a68c08316710.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/300046-152569ec4b9cb867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>打包好的.ipa包只有在破解的iPhone下安装</strong></p>
+
       
     </div>
 
@@ -351,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NGeLBGithub.io/2015/10/22/iOS中几种数据持久化方案/" rel="next" title="iOS中几种数据持久化方案">
-                <i class="fa fa-chevron-left"></i> iOS中几种数据持久化方案
+              <a href="/NGeLBGithub.io/2015/10/22/iOS中几种数据持久化方案/" rel="next" title="『转载』iOS中几种数据持久化方案">
+                <i class="fa fa-chevron-left"></i> 『转载』iOS中几种数据持久化方案
               </a>
             
           </div>
@@ -410,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://upload.jianshu.io/users/upload_avatars/1450561/636896afa3bb.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240"
@@ -473,6 +508,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法（一）："><span class="nav-number">1.</span> <span class="nav-text">方法（一）：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）"><span class="nav-number">1.1.</span> <span class="nav-text">1. 打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Edit-scheme"><span class="nav-number">1.2.</span> <span class="nav-text">2. Edit scheme</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-选择Release模式"><span class="nav-number">1.3.</span> <span class="nav-text">3. 选择Release模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-command-B-编译（最好先clean下程序）"><span class="nav-number">1.4.</span> <span class="nav-text">4. command + B 编译（最好先clean下程序）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-编译完成后会发现Products文件夹下的-app文件由红色变成了黑色"><span class="nav-number">1.5.</span> <span class="nav-text">5. 编译完成后会发现Products文件夹下的.app文件由红色变成了黑色</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-点击这个-app文件-show-in-fider"><span class="nav-number">1.6.</span> <span class="nav-text">6. 点击这个.app文件 show in fider</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-在桌面新建个Payload文件夹将-app文件放进去，然后压缩改文件夹。"><span class="nav-number">1.7.</span> <span class="nav-text">7. 在桌面新建个Payload文件夹将.app文件放进去，然后压缩改文件夹。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-压缩完之后才可以改成你想要的名字，改完名称后直接把-zip后缀改成-ipa后缀就OK了"><span class="nav-number">1.8.</span> <span class="nav-text">8. 压缩完之后才可以改成你想要的名字，改完名称后直接把.zip后缀改成.ipa后缀就OK了</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法（二）："><span class="nav-number">2.</span> <span class="nav-text">方法（二）：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-打开iTunes选择应用程序"><span class="nav-number">2.1.</span> <span class="nav-text">1. 打开iTunes选择应用程序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-直接把-app包拖进去"><span class="nav-number">2.2.</span> <span class="nav-text">2.直接把.app包拖进去</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-然后直接-show-in-finder-发现iTunes已经帮我们打包好了。"><span class="nav-number">2.3.</span> <span class="nav-text">3. 然后直接 show in finder 发现iTunes已经帮我们打包好了。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

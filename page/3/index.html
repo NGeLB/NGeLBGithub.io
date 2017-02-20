@@ -293,7 +293,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-02T04:33:14+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-12-01T20:33:14Z">
                 2015-12-01
               </time>
             
@@ -418,7 +418,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-22T03:20:06+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-21T19:20:06Z">
                 2015-11-21
               </time>
             
@@ -527,7 +527,7 @@
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2015/11/11/Xcode程序打包-ipa/" itemprop="url">
-                  Xcode程序打包 .ipa
+                  『转载』Xcode程序打包 .ipa
                 </a>
               
             
@@ -581,8 +581,13 @@
       
         
           
-          
-          
+          解析手机里面的其他app软件的事相信大家都干过，小编就经常解析那些大型app来“借用”它们的图片，最常用的工具就是iTools。当我们用iTools解析某个app时会发现有个后缀为.ipa的文件，这个.ipa后缀的文件里面就包含我们想要的资源（其实.ipa包就类似安卓的apk包）。.ipa文件包除了包含app的资源，最大的用处是可以给已经越狱过了的iPhone直接安装该程序，这对软件开发过程中的测试工作起到了很大的作用，下面就教大家怎么来给程序打包成.ipa。
+方法（一）：1. 打开你需要打包的程序，选成真机模式。（不一定非要真机，只选择真机的模式就行）
+2. Edit scheme
+3. 选择Release模式
+4. command + B 编译（最好先clean下程序）5. 编译完成后会发现Products文件夹下的.app文件由红色变成了黑色
+6. 点击这个.app文件 show i
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2015/11/11/Xcode程序打包-ipa/#more" rel="contents">
@@ -652,7 +657,7 @@
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2015/10/22/iOS中几种数据持久化方案/" itemprop="url">
-                  iOS中几种数据持久化方案
+                  『转载』iOS中几种数据持久化方案
                 </a>
               
             
@@ -706,8 +711,21 @@
       
         
           
-          
-          
+          概论所谓的持久化，就是将数据保存到硬盘中，使得在应用程序或机器重启后可以继续访问之前保存的数据。在iOS开发中，有很多数据持久化的方案，接下来我将尝试着介绍一些5种方案：  
+
+plist文件（属性列表）
+preference（偏好设置）
+NSKeyedArchiver（归档）
+SQLite3
+CoreData
+
+沙盒在介绍各种储存方法之前，有必要说明一下沙盒机制。iOS程序默认情况下只能访问程序自己的目录，这个目录被称为“沙盒”。
+1. 结构既然沙盒就是文件夹，那就看看里面有什么吧。沙盒的目录结构如下：
+123456&quot;应用程序包&quot;- Documents- Library- - Caches- - Preferences- Tmp
+2. 目录特性虽然沙盒中有这么多文件夹，但是没有文件夹都不尽相同，都有各自的特性。所以在选择存放目录的时候，一定要认证选择适合的目录。
+
+应
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2015/10/22/iOS中几种数据持久化方案/#more" rel="contents">
