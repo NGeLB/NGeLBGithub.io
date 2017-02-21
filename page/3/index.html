@@ -402,7 +402,7 @@
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2015/11/22/Objective-C编码规范-译/" itemprop="url">
-                  Objective-C编码规范[译]
+                  『转载』Objective-C编码规范[译]
                 </a>
               
             
@@ -456,8 +456,12 @@
       
         
           
-          
-          
+          语言应该使用US英语
+应该：1UIColor *myColor = [UIColor whiteColor];
+不应该：1UIColor *myColour = [UIColor whiteColor];
+代码组织在函数分组和protocol/delegate实现中使用#progma mark -来分类方法，要遵循以下一般结构：
+12345678910111213141516171819202122232425262728293031323334353637#pragma mark - Lifecycle- (instancetype)init &#123;&#125;- (void)dealloc &#123;&#125;- (void)viewDidLoad &#123;&#125;- (void)viewWillAppear:(BOOL)animated &#123;&#125;- 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2015/11/22/Objective-C编码规范-译/#more" rel="contents">
