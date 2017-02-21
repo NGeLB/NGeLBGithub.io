@@ -84,16 +84,45 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="介绍
+iOS中以栈的形式保存子控制器，如下图：  
+
+
+
+导航控制器显示的永远是我们栈顶的控制器的view
+
+简单使用简单的创建方式
+123UIViewController *vc = [[UIViewController alloc] init];UINavigationController *nav = [[UINavigationController alloc] initWithRootV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS-UINavigationController简介">
+<meta property="og:title" content="『转载』iOS-UINavigationController简介">
 <meta property="og:url" content="https://ngelb.github.io/2015/12/12/iOS-UINavigationController简介/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T06:54:26.000Z">
+<meta property="og:description" content="介绍
+iOS中以栈的形式保存子控制器，如下图：  
+
+
+
+导航控制器显示的永远是我们栈顶的控制器的view
+
+简单使用简单的创建方式
+123UIViewController *vc = [[UIViewController alloc] init];UINavigationController *nav = [[UINavigationController alloc] initWithRootV">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266345-65a2b985af7c26ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266345-45ed180d1c5af468.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266345-41db187dba48fdab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/266345-420536023a85ee11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-21T10:22:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS-UINavigationController简介">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:title" content="『转载』iOS-UINavigationController简介">
+<meta name="twitter:description" content="介绍
+iOS中以栈的形式保存子控制器，如下图：  
+
+
+
+导航控制器显示的永远是我们栈顶的控制器的view
+
+简单使用简单的创建方式
+123UIViewController *vc = [[UIViewController alloc] init];UINavigationController *nav = [[UINavigationController alloc] initWithRootV">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/266345-65a2b985af7c26ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -127,7 +156,7 @@
 
 
 
-  <title> iOS-UINavigationController简介 | NGeLB'S BLOG </title>
+  <title> 『转载』iOS-UINavigationController简介 | NGeLB'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +303,7 @@
             
             
               
-                iOS-UINavigationController简介
+                『转载』iOS-UINavigationController简介
               
             
           </h1>
@@ -325,7 +354,40 @@
       
 
       
-        
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ul>
+<li>iOS中以栈的形式保存子控制器，如下图：  </li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/266345-65a2b985af7c26ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ul>
+<li><strong>导航控制器显示的永远是我们栈顶的控制器的view</strong></li>
+</ul>
+<h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p>简单的创建方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UIViewController *vc = [[UIViewController alloc] init];</div><div class="line">UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];</div><div class="line">self.window.rootViewController = nav;</div></pre></td></tr></table></figure>
+<h4 id="底层实现"><a href="#底层实现" class="headerlink" title="底层实现"></a>底层实现</h4><p>这里讲一下 navigation 底层的实现逻辑，其实就是解释这行代码的逻辑：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];</div></pre></td></tr></table></figure>
+<p><strong>底层系统默认的调用了push方法将我们的vc设置成为栈底跟视图</strong>。</p>
+<h4 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h4><p>我们来看看navigationController的层次结构  </p>
+<ul>
+<li>当我们将一个控制器装入一个navigationController并设为跟控制器之后，就会看到层次中多了一个<code>UILayoutContainerView</code>中包含了连个视图，一个是<code>UINavigationTransitionView</code>、一个是<code>UINavigationBar</code>视图。</li>
+<li><p><code>UINavigationTransitionView</code>装载的就是当前栈顶控制器所承载的视图，<code>UINavigationBar</code>就是我们的导航栏视图。</p>
+<p>  <img src="http://upload-images.jianshu.io/upload_images/266345-45ed180d1c5af468.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>  <img src="http://upload-images.jianshu.io/upload_images/266345-41db187dba48fdab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>  <img src="http://upload-images.jianshu.io/upload_images/266345-420536023a85ee11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ul>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p><strong>前方高能</strong>：<code>automaticallyAdjustsScrollViewInsets</code>这个属性默认将<code>controller</code>上所有的（<strong>原作者说是所有，但是我记得是第一个</strong>）<code>scrollView</code>都向下偏移64，由于笔者被其所坑，找了三天bug才找出它来，所以一定要慎用此属性。</p>
+<ul>
+<li><p>在iOS7之后，系统默认会给导航控制器中所有的<code>UIScrollView</code>的顶部添加额外的滚动区域64，消除方法：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.automaticallyAdjustsScrollViewInsets = NO;</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置导航条透明方法：<strong>其实是设置导航条内的背景图片的颜色是透明的</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置导航条阴影背景，<strong>也是设置图片</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
 
@@ -351,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NGeLBGithub.io/2015/12/02/iOS应用程序的生命周期/" rel="next" title="iOS应用程序的生命周期">
-                <i class="fa fa-chevron-left"></i> iOS应用程序的生命周期
+              <a href="/NGeLBGithub.io/2015/12/02/iOS应用程序的生命周期/" rel="next" title="『转载』iOS应用程序的生命周期">
+                <i class="fa fa-chevron-left"></i> 『转载』iOS应用程序的生命周期
               </a>
             
           </div>
@@ -410,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://upload.jianshu.io/users/upload_avatars/1450561/636896afa3bb.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240"
@@ -473,6 +544,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#底层实现"><span class="nav-number">3.</span> <span class="nav-text">底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#层次结构"><span class="nav-number">4.</span> <span class="nav-text">层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

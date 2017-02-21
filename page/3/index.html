@@ -277,7 +277,7 @@
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2015/12/02/iOS应用程序的生命周期/" itemprop="url">
-                  iOS应用程序的生命周期
+                  『转载』iOS应用程序的生命周期
                 </a>
               
             
@@ -331,8 +331,11 @@
       
         
           
-          
-          
+          http://www.jianshu.com/p/aa50e5350852
+应用程序一般都是由自己编写的代码和系统框架（system frameworks）组成，系统框架提供一些基本infrastructure给所有app来运行，而你提供自己编写的代码来定制app的外观和行为。因此，了解iOS infrastructure和它们如何工作对编写app是很有帮助的。
+Main函数入口所有基于c编写的app的入口都是main函数，但iOS应用程序有点不同。不同就是你不需要为iOS应用程序而自己编写mian函数，当你使用Xcode创建工程的时候就已经提供了。除非一些特殊情况，否则你不应该修改Xcode提供的main函数实现。实例代码如下：
+123456789#import &lt;UIKit/UIKit.h&gt;#import &quot;AppDelegate.h&quot;int main(
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2015/12/02/iOS应用程序的生命周期/#more" rel="contents">

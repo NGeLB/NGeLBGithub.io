@@ -1159,7 +1159,7 @@ Destination：意思是说是否要在项目目录下复制资源
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2015/12/12/iOS-UINavigationController简介/" itemprop="url">
-                  iOS-UINavigationController简介
+                  『转载』iOS-UINavigationController简介
                 </a>
               
             
@@ -1213,8 +1213,19 @@ Destination：意思是说是否要在项目目录下复制资源
       
         
           
-          
-          
+          介绍
+iOS中以栈的形式保存子控制器，如下图：  
+
+
+
+导航控制器显示的永远是我们栈顶的控制器的view
+
+简单使用简单的创建方式
+123UIViewController *vc = [[UIViewController alloc] init];UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];self.window.rootViewController = nav;
+底层实现这里讲一下 navigation 底层的实现逻辑，其实就是解释这行代码的逻辑：
+1UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+底层系统默
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2015/12/12/iOS-UINavigationController简介/#more" rel="contents">
