@@ -1034,7 +1034,7 @@ Destination：意思是说是否要在项目目录下复制资源
               
                 
                 <a class="post-title-link" href="/NGeLBGithub.io/2016/01/01/iOS-代理为啥要用weak修饰/" itemprop="url">
-                  iOS 代理为啥要用weak修饰?
+                  『转载』iOS 代理为啥要用weak修饰?
                 </a>
               
             
@@ -1088,8 +1088,16 @@ Destination：意思是说是否要在项目目录下复制资源
       
         
           
-          
-          
+          http://www.jianshu.com/p/398472616435
+在我们开发中我们经常使用代理，或自己写代理，而代理属性都用weak（assign）修饰，看过有些开发者用strong（retain），但并没发现有有何不妥，也不清楚weak（assign）与strong（retain）修饰有何区别
+功能实现就行了，考虑这么多干嘛~~~我只能哈哈哈
+
+weak：指明该对象并不负责保持delegate这个对象，delegate这个对象的销毁由外部控制
+  1@property (nonatomic, weak) id&lt;HSDogDelegate&gt;delegate;
+
+strong：该对象强引用delegate，外界不能销毁delegate对象，会导致循环引用（Retain Cycles）
+  1@property (nonatomic, strong) id&lt;HSDo
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2016/01/01/iOS-代理为啥要用weak修饰/#more" rel="contents">
