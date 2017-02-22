@@ -84,16 +84,78 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="内边距 == 切掉设置区域，内容显示在未切区域
+  
+
+已按钮为例：
+  
+  
+
+contentEdgeInsets
+
+会把UIImageView和UILabel当做一个整体移动
+
+
+titleEdgeInsets
+那么不会影响到另外一个，也就是只会改变当前设置的这个控件
+
+
+
+案例
+代码实现
+123456789101112131415161718192021- (void)viewDidLo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="内边距 contentInset">
+<meta property="og:title" content="『转载』内边距 contentInset">
 <meta property="og:url" content="https://ngelb.github.io/2016/01/13/内边距-contentInset/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T07:03:30.000Z">
+<meta property="og:description" content="内边距 == 切掉设置区域，内容显示在未切区域
+  
+
+已按钮为例：
+  
+  
+
+contentEdgeInsets
+
+会把UIImageView和UILabel当做一个整体移动
+
+
+titleEdgeInsets
+那么不会影响到另外一个，也就是只会改变当前设置的这个控件
+
+
+
+案例
+代码实现
+123456789101112131415161718192021- (void)viewDidLo">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-5185b02dd4f7b595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-cbfbd090fdf2ff75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-f9121e891fe629df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-72dbfb70e94bd240.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-22T05:47:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="内边距 contentInset">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:title" content="『转载』内边距 contentInset">
+<meta name="twitter:description" content="内边距 == 切掉设置区域，内容显示在未切区域
+  
+
+已按钮为例：
+  
+  
+
+contentEdgeInsets
+
+会把UIImageView和UILabel当做一个整体移动
+
+
+titleEdgeInsets
+那么不会影响到另外一个，也就是只会改变当前设置的这个控件
+
+
+
+案例
+代码实现
+123456789101112131415161718192021- (void)viewDidLo">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/831339-5185b02dd4f7b595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -127,7 +189,7 @@
 
 
 
-  <title> 内边距 contentInset | NGeLB'S BLOG </title>
+  <title> 『转载』内边距 contentInset | NGeLB'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +336,7 @@
             
             
               
-                内边距 contentInset
+                『转载』内边距 contentInset
               
             
           </h1>
@@ -325,7 +387,28 @@
       
 
       
-        
+        <ul>
+<li><p>内边距 == 切掉设置区域，内容显示在未切区域</p>
+<p>  <img src="http://upload-images.jianshu.io/upload_images/831339-5185b02dd4f7b595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>已按钮为例：</p>
+<p>  <img src="http://upload-images.jianshu.io/upload_images/831339-cbfbd090fdf2ff75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>  <img src="http://upload-images.jianshu.io/upload_images/831339-f9121e891fe629df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>contentEdgeInsets</p>
+<ul>
+<li>会把UIImageView和UILabel当做一个整体移动</li>
+</ul>
+</li>
+<li>titleEdgeInsets<ul>
+<li>那么不会影响到另外一个，也就是只会改变当前设置的这个控件</li>
+</ul>
+</li>
+</ul>
+<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><p><img src="http://upload-images.jianshu.io/upload_images/831339-72dbfb70e94bd240.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><strong>代码实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];</div><div class="line">    [btn setImage:[UIImage imageNamed:@&quot;024&quot;] forState:UIControlStateNormal];</div><div class="line">    [btn setTitle:@&quot;贵宾&quot; forState:UIControlStateNormal];</div><div class="line">    btn.frame = CGRectMake(100, 100, 145, 60);</div><div class="line"></div><div class="line">    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];</div><div class="line"></div><div class="line">    btn.backgroundColor = [UIColor redColor];</div><div class="line">    btn.imageView.backgroundColor = [UIColor greenColor];</div><div class="line">    btn.titleLabel.backgroundColor = [UIColor yellowColor];</div><div class="line"></div><div class="line">    // 上左下右</div><div class="line">    btn.contentEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0);</div><div class="line">    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);</div><div class="line">//    btn.imageEdgeInsets = UIEdgeInsetsMake(50, 0, 0, 00);</div><div class="line"></div><div class="line">    [self.view addSubview:btn];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -361,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/NGeLBGithub.io/2016/02/03/CPU-VS-GPU/" rel="prev" title="CPU VS GPU">
-                CPU VS GPU <i class="fa fa-chevron-right"></i>
+              <a href="/NGeLBGithub.io/2016/02/06/深入NSTimer/" rel="prev" title="深入NSTimer">
+                深入NSTimer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -410,8 +493,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://upload.jianshu.io/users/upload_avatars/1450561/636896afa3bb.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240"
@@ -424,7 +516,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/NGeLBGithub.io/">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -473,6 +565,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#案例"><span class="nav-number">1.</span> <span class="nav-text">案例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
