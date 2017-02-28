@@ -84,16 +84,48 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="1. 应用间互相跳转简介在iOS开发的过程中，我们经常会遇到需要从一个应用程序A跳转到另一个应用程序B的场景。这就需要我们掌握iOS应用程序之间的互相跳转知识。
+下面来看看我们在开发过程中遇到的应用场景。
+2. 应用间相互跳转应用场景
+使用第三方用户登录，跳转到需授权的App。如QQ登录，微信登录等。
+需要用户授权，还需要“返回到调用的程序，同时返回授权的用户名、密码”。
+
+
+应用程序推广，跳转到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一步步教你彻底学会『iOS应用间相互跳转』">
 <meta property="og:url" content="https://ngelb.github.io/2016/09/21/一步步教你彻底学会『iOS应用间相互跳转』/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T08:55:54.000Z">
+<meta property="og:description" content="1. 应用间互相跳转简介在iOS开发的过程中，我们经常会遇到需要从一个应用程序A跳转到另一个应用程序B的场景。这就需要我们掌握iOS应用程序之间的互相跳转知识。
+下面来看看我们在开发过程中遇到的应用场景。
+2. 应用间相互跳转应用场景
+使用第三方用户登录，跳转到需授权的App。如QQ登录，微信登录等。
+需要用户授权，还需要“返回到调用的程序，同时返回授权的用户名、密码”。
+
+
+应用程序推广，跳转到">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-f621398f16a06a5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-87372b714aa681ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-5bf4dd0f0a5095cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-a47d2ee8ca2e8b55.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-10c9f942f107be1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-6bbaa79ff2880cbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-b1d06f6b6a2569ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-a98dd43ca22f2190.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-88b1f315262b92e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1877784-3e0e78fc33cf0416.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-02-28T03:45:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一步步教你彻底学会『iOS应用间相互跳转』">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:description" content="1. 应用间互相跳转简介在iOS开发的过程中，我们经常会遇到需要从一个应用程序A跳转到另一个应用程序B的场景。这就需要我们掌握iOS应用程序之间的互相跳转知识。
+下面来看看我们在开发过程中遇到的应用场景。
+2. 应用间相互跳转应用场景
+使用第三方用户登录，跳转到需授权的App。如QQ登录，微信登录等。
+需要用户授权，还需要“返回到调用的程序，同时返回授权的用户名、密码”。
+
+
+应用程序推广，跳转到">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1877784-f621398f16a06a5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -325,7 +357,104 @@
       
 
       
-        
+        <h4 id="1-应用间互相跳转简介"><a href="#1-应用间互相跳转简介" class="headerlink" title="1. 应用间互相跳转简介"></a>1. 应用间互相跳转简介</h4><p>在iOS开发的过程中，我们经常会遇到需要从一个应用程序A跳转到另一个应用程序B的场景。这就需要我们掌握iOS应用程序之间的互相跳转知识。</p>
+<p>下面来看看我们在开发过程中遇到的应用场景。</p>
+<h4 id="2-应用间相互跳转应用场景"><a href="#2-应用间相互跳转应用场景" class="headerlink" title="2. 应用间相互跳转应用场景"></a>2. 应用间相互跳转应用场景</h4><ol>
+<li>使用第三方用户登录，跳转到需授权的App。如QQ登录，微信登录等。<ul>
+<li>需要用户授权，还需要“返回到调用的程序，同时返回授权的用户名、密码”。</li>
+</ul>
+</li>
+<li>应用程序推广，跳转到另一个应用程序（本机已经安装），或者跳转到iTunes并显示应用程序下载页面（本机没有安装）。</li>
+<li>第三方支付，跳转到第三方支付App，如支付宝支付，微信支付。</li>
+<li>内容分享，跳转到分享App的对应页面，如分享给微信好友、分享给微信朋友圈、分享到微博。</li>
+<li>显示位置、地图导航，跳转到地图应用。</li>
+<li>使用系统内置程序，跳转到打电话、发短信、发邮件、Safari打开网页等内置App中。</li>
+</ol>
+<p>那么我们如何实现应用间的互相跳转呢？先来看下原理。</p>
+<h4 id="3-应用间相互跳转实现原理"><a href="#3-应用间相互跳转实现原理" class="headerlink" title="3. 应用间相互跳转实现原理"></a>3. 应用间相互跳转实现原理</h4><p>在iOS中打开一个应用程序只需要拿到这个应用程序的协议头即可，所以我们只需配置应用程序的协议头即可。</p>
+<p>假设有<strong>应用A</strong>和<strong>应用B</strong>两个应用，现在需要从应用A跳转到应用B中。</p>
+<ul>
+<li>原理：通过设置跳转到应用B的URL Schemes（自定义的协议头），应用B将其自身“绑定”到一个自定义URL Schemes上，就可以从应用A中利用应用B的URL Schemes启动应用B了。</li>
+</ul>
+<p>具体怎么做呢？下面一步步来教你，先来个简单的：从应用A跳转到应用B。</p>
+<h4 id="4-应用A跳转到应用B"><a href="#4-应用A跳转到应用B" class="headerlink" title="4. 应用A跳转到应用B"></a>4. 应用A跳转到应用B</h4><ol>
+<li>首先我们用Xcode创建两个iOS应用程序项目，项目名称分别为App-A、App-B。</li>
+<li><p>选择项目App-B -&gt; TARGETS -&gt; Info -&gt; URL Types -&gt; URL Schemes，设置App-B的URL Schemes为AppB。<br><img src="http://upload-images.jianshu.io/upload_images/1877784-f621398f16a06a5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>在应用程序App-A中添加一个用来点击跳转的Button，并监听点击事件，添加跳转代码。<br><img src="http://upload-images.jianshu.io/upload_images/1877784-87372b714aa681ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (IBAction)jumpToAppB:(id)sender &#123;</div><div class="line">   // 1.获取应用程序App-B的URL Scheme</div><div class="line">   NSURL *appBUrl = [NSURL URLWithString:@&quot;AppB://&quot;];</div><div class="line"></div><div class="line">   // 2.判断手机中是否安装了对应程序</div><div class="line">   if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) &#123;</div><div class="line">       // 3. 打开应用程序App-B</div><div class="line">       [[UIApplication sharedApplication] openURL:appBUrl];</div><div class="line">   &#125; else &#123;</div><div class="line">       NSLog(@&quot;没有安装&quot;);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>如果是iOS9之前的模拟器或是真机，那么在相同的模拟器中先后运行App-B、App-A，点击按钮，就可以实现跳转了。</li>
+<li><p>如果是iOS9之后的模拟器或真机，那么则需要在应用程序App-A中将App-B的URL Schemes添加到白名单中，原因和做法如下。</p>
+<ul>
+<li>iOS9引入了白名单的概念。</li>
+<li><p>在iOS9中，如果使用canOpenURL:方法，该方法所涉及到的URL Schemes必须在”Info.plist”中将它们列为白名单，否则不能使用。key叫做LSApplicationQueriesSchemes，键值内容是对应应用程序的URL Schemes。</p>
+<p>具体做法就是在App-A的Info文件中，添加LSApplicationQueriesSchemes数组，然后添加键值为App-B的字符串。<br><img src="http://upload-images.jianshu.io/upload_images/1877784-5bf4dd0f0a5095cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>添加白名单之后在相同的模拟器中先后运行App-B、App-A，点击按钮，就可以实现跳转了。<br>具体效果如下图所示。<br><img src="http://upload-images.jianshu.io/upload_images/1877784-a47d2ee8ca2e8b55.gif?imageMogr2/auto-orient/strip" alt=""><br>下边学习以下从应用A跳转到应用B的特定界面。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="5-应用A跳转到应用B的特定界面"><a href="#5-应用A跳转到应用B的特定界面" class="headerlink" title="5. 应用A跳转到应用B的特定界面"></a>5. 应用A跳转到应用B的特定界面</h4><p>很多时候，我们做应用程序之间的跳转并不只是跳转到其他程序就可以了，而是要跳转到其他程序的特定页面上。比如我们在浏览网页时，会有分享到微信朋友圈或是分享给微信朋友，这就需要跳转到微信朋友圈界面或是微信朋友选择界面。</p>
+<p>具体如何做呢？</p>
+<ol>
+<li><p>首先我们先来为App-B搭建两个页面<code>page1</code>和<code>page2</code>。这里用导航控制器Push两个ViewController，通过Storyboard Segue设置两个ViewController的标识符绑定，分别为”homeToPage1”和”homeToPage2”。<br> <img src="http://upload-images.jianshu.io/upload_images/1877784-10c9f942f107be1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br> <img src="http://upload-images.jianshu.io/upload_images/1877784-6bbaa79ff2880cbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>在应用程序App-A中添加两个用来点击跳转的Button，一个跳转到Page1，一个跳转到Page2，并监听点击事件，添加跳转代码。<br> <img src="http://upload-images.jianshu.io/upload_images/1877784-b1d06f6b6a2569ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">- (IBAction)jumpToAppBPage1:(id)sender &#123;</div><div class="line">    // 1.获取应用程序App-B的Page1页面的URL</div><div class="line">    NSURL *appBUrl = [NSURL URLWithString:@&quot;AppB://Page1&quot;];</div><div class="line"></div><div class="line">    // 2.判断手机中是否安装了对应程序</div><div class="line">    if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) &#123;</div><div class="line">        // 3. 打开应用程序App-B的Page1页面</div><div class="line">        [[UIApplication sharedApplication] openURL:appBUrl];</div><div class="line">    &#125; else &#123;</div><div class="line">        NSLog(@&quot;没有安装&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (IBAction)jumpToAppBPage2:(id)sender &#123;</div><div class="line">    // 1.获取应用程序App-B的Page2页面的URL</div><div class="line">    NSURL *appBUrl = [NSURL URLWithString:@&quot;AppB://Page2&quot;];</div><div class="line"></div><div class="line">    // 2.判断手机中是否安装了对应程序</div><div class="line">    if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) &#123;</div><div class="line">        // 3. 打开应用程序App-B的Page2页面</div><div class="line">        [[UIApplication sharedApplication] openURL:appBUrl];</div><div class="line">    &#125; else &#123;</div><div class="line">        NSLog(@&quot;没有安装&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在应用App-B中通过<code>AppDelegate</code>监听跳转，进行判断，执行不同页面的跳转</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation</div><div class="line">&#123;</div><div class="line">    // 1.获取导航栏控制器</div><div class="line">    UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;</div><div class="line">    // 2.获得主控制器</div><div class="line">    ViewController *mainVc = [rootNav.childViewControllers firstObject];</div><div class="line"></div><div class="line">    // 3.每次跳转前必须是在跟控制器(细节)</div><div class="line">    [rootNav popToRootViewControllerAnimated:NO];   </div><div class="line"></div><div class="line">    // 4.根据字符串关键字来跳转到不同页面</div><div class="line">    if ([url.absoluteString containsString:@&quot;Page1&quot;]) &#123; // 跳转到应用App-B的Page1页面</div><div class="line">        // 根据segue标示进行跳转</div><div class="line">        [mainVc performSegueWithIdentifier:@&quot;homeToPage1&quot; sender:nil];</div><div class="line">    &#125; else if ([url.absoluteString containsString:@&quot;Page2&quot;]) &#123; // 跳转到应用App-B的Page2页面</div><div class="line">        // 根据segue标示进行跳转</div><div class="line">        [mainVc performSegueWithIdentifier:@&quot;homeToPage2&quot; sender:nil];</div><div class="line">    &#125;   </div><div class="line"></div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 具体效果如下：<br> <img src="http://upload-images.jianshu.io/upload_images/1877784-a98dd43ca22f2190.gif?imageMogr2/auto-orient/strip" alt=""></p>
+</li>
+</ol>
+<h4 id="6-从应用B跳转回应用A"><a href="#6-从应用B跳转回应用A" class="headerlink" title="6. 从应用B跳转回应用A"></a>6. 从应用B跳转回应用A</h4><h4 id="1-步骤分析："><a href="#1-步骤分析：" class="headerlink" title="1. 步骤分析："></a>1. 步骤分析：</h4><ol>
+<li>我们想要从应用B再跳转回应用A，那么在跳转到应用B的时候，还应将应用A的URL Schemes传递过来。这样我们才能判断应该跳转回哪个应用程序。<ul>
+<li>这样我们指定一个传递URL的规则：<code>协议头://应用B的URL Schemes?应用A的URL Schemes</code>。即：<code>AppB://Page1?AppA</code>。</li>
+<li>说明：<ul>
+<li>AppB是跳转过来的应用App-B的URL Schemes；</li>
+<li>Page1是用来区别跳转页面的标识；</li>
+<li>？是分隔符；</li>
+<li>AppA是跳转回的应用App-A的URL Schemes；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>我们根据传递来的数据，进行反跳回去。<ul>
+<li>之前我们在应用App-B中通过<code>AppDelegate</code>执行不同页面的跳转。在对应方法中我们可以拿到完整的URL，在主控制ViewController中设定一个属性，将该URL保存在主控制器中。</li>
+<li>在主控制器中我们可以通过<code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;</code>方法获取将要跳转的页面控制器。</li>
+<li>在将要跳转的页面控制器中定义一个属性，用于接受、截取去跳转回的应用（即App-A）的URL Schemes，执行跳转。</li>
+</ul>
+</li>
+</ol>
+<h5 id="2-具体步骤："><a href="#2-具体步骤：" class="headerlink" title="2. 具体步骤："></a>2. 具体步骤：</h5><p>1.<strong>准备步骤</strong>：</p>
+<ol>
+<li>因为我们想要跳转回应用A，首先我们要先设置应用App-A的URL Schemes，将其设置为AppA。同时在应用App-B中添加白名单。具体操作和之前相似。</li>
+<li>在App-B项目中的Page1和Page2两个页面各添加一个Button，用于跳转回App-A。同时添加Page1和Page2的页面控制器Page1ViewController和Page2ViewController。<br> <img src="http://upload-images.jianshu.io/upload_images/1877784-88b1f315262b92e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ol>
+<p>2.<strong>实现步骤</strong></p>
+<ol>
+<li><p>在App-A中修改传递的URL。</p>
+<ul>
+<li>分别修改为：<code>@&quot;AppB://?AppA&quot;</code>、<code>@&quot;AppB://Page1?AppA&quot;</code>、<code>@&quot;AppB://Page2?AppA&quot;</code></li>
+</ul>
+</li>
+<li><p>在App-B的主控制器ViewController中添加一条属性<code>@property (nonatomic, copy) NSString *urlString;</code>，并在App-B中通过<code>Application</code>中保存完整的URL。</p>
+</li>
+<li>在将要跳转的页面控制器Page1ViewController和Page2ViewController中定义一个属性<code>@property (nonatomic, copy) NSString *urlString;</code>，用于接受、截取出跳转回的应用（即App-A）的URL Schemes，执行跳转。</li>
+<li><p>重写App-B的主控制器的<code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;</code>方法。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</div><div class="line">&#123;</div><div class="line">   if ([segue.identifier isEqualToString:@&quot;homeToPage1&quot;]) &#123;</div><div class="line">       // 获得将要跳转的界面Page1的控制器</div><div class="line">       Page1ViewController *Page1Vc = segue.destinationViewController;</div><div class="line">       // 保存完整的App-A的URL给跳转界面Page1</div><div class="line">       Page1Vc.urlString = self.urlString;</div><div class="line">   &#125; else if ([segue.identifier isEqualToString:@&quot;homeToPage2&quot;]) &#123;</div><div class="line">       // 获得将要跳转的界面Page2的控制器</div><div class="line">       Page2ViewController *Page2Vc = segue.destinationViewController;</div><div class="line">       // 保存完整的App-A的URL给跳转界面Page1</div><div class="line">       Page2Vc.urlString = self.urlString;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在对应界面控制器Page1ViewController和PageViewController中实现跳转代码<br><strong>- Page1ViewController.m</strong></p>
+</li>
+</ol>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    - (IBAction)page1BackToAppA:(id)sender &#123;</div><div class="line">   // 1.拿到对应应用程序的URL Scheme</div><div class="line">   NSString *urlSchemeString = [[self.urlString componentsSeparatedByString:@&quot;?&quot;] lastObject];</div><div class="line">   NSString *urlString = [urlSchemeString stringByAppendingString:@&quot;://&quot;];</div><div class="line"></div><div class="line">   // 2.获取对应应用程序的URL</div><div class="line">   NSURL *url = [NSURL URLWithString:urlString];</div><div class="line"></div><div class="line">   // 3.判断是否可以打开</div><div class="line">   if ([[UIApplication sharedApplication] canOpenURL:url]) &#123;</div><div class="line">       [[UIApplication sharedApplication] openURL:url];</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>   <strong>- Page2ViewController.m</strong></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    - (IBAction)page2BackToAppA:(id)sender &#123;</div><div class="line">   // 1.拿到对应应用程序的URL Scheme</div><div class="line">   NSString *urlSchemeString = [[self.urlString componentsSeparatedByString:@&quot;?&quot;] lastObject];</div><div class="line">   NSString *urlString = [urlSchemeString stringByAppendingString:@&quot;://&quot;];</div><div class="line"></div><div class="line">   // 2.获取对应应用程序的URL</div><div class="line">   NSURL *url = [NSURL URLWithString:urlString];</div><div class="line"></div><div class="line">   // 3.判断是否可以打开</div><div class="line">   if ([[UIApplication sharedApplication] canOpenURL:url]) &#123;</div><div class="line">       [[UIApplication sharedApplication] openURL:url];</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>具体效果如下：<br><img src="http://upload-images.jianshu.io/upload_images/1877784-3e0e78fc33cf0416.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>Github上Demo地址：<a href="https://github.com/lianai911/YSC-AppAJumpToAppB" target="_blank" rel="external">YSC-AppAJumpToAppB。</a></p>
+
       
     </div>
 
@@ -410,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://upload.jianshu.io/users/upload_avatars/1450561/636896afa3bb.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240"
@@ -473,6 +611,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-应用间互相跳转简介"><span class="nav-number">1.</span> <span class="nav-text">1. 应用间互相跳转简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-应用间相互跳转应用场景"><span class="nav-number">2.</span> <span class="nav-text">2. 应用间相互跳转应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-应用间相互跳转实现原理"><span class="nav-number">3.</span> <span class="nav-text">3. 应用间相互跳转实现原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-应用A跳转到应用B"><span class="nav-number">4.</span> <span class="nav-text">4. 应用A跳转到应用B</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-应用A跳转到应用B的特定界面"><span class="nav-number">5.</span> <span class="nav-text">5. 应用A跳转到应用B的特定界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-从应用B跳转回应用A"><span class="nav-number">6.</span> <span class="nav-text">6. 从应用B跳转回应用A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-步骤分析："><span class="nav-number">7.</span> <span class="nav-text">1. 步骤分析：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-具体步骤："><span class="nav-number">7.1.</span> <span class="nav-text">2. 具体步骤：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
