@@ -956,8 +956,18 @@
       
         
           
-          
-          
+          nil：指向一个对象的空指针，对objective-c id对象赋空值Nil：指向一个类的空指针，表示对类进行赋空值NULL：指向其他类型（如：基本类型、c类型）的空指针，用于对非对象指针赋空值NSNull：在集合对象中，表示空值的对象
+
+nil在指向一个对象的指针为空 定义如下：
+ 1234567#ifndef nil# if __has_feature(cxx_nullptr)#   define nil nullptr# else#   define nil __DARWIN_NULL# endif#endif
+ 在Objective-C中用于id类型的对象
+ 123NSString *str = nil;NSURL    *url  = nil;id object      = nil;
+
+
+
+Nil指向一个类的指针为空 定义如下：
+ 1234567#ifndef Nil# if 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2016/08/03/nil、Nil、NULL、NSNull的区别/#more" rel="contents">
@@ -1081,8 +1091,22 @@
       
         
           
-          
-          
+          快速创建项目：1command + shift + N
+快速创建文件：1command + N
+在某一行文件内搜索：1command + F
+在某一行文件内替换：1option + command + F
+项目内搜索：1command + shift + F
+快速导入头文件：1Ctrl + command + H
+快速打开某一文件：1command + shift + O
+快速跳转到某一行：1command + L
+运行工程：1command + R
+停止工程：1command + .
+清除工程：1Command + Shift + K:
+构建版本程序：1Command + B
+上移一行：1option + command + [
+下移一行：1option + command + ]
+.h文件与.m文件之间的快速切换：1control + command + ↑ , control + c
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2016/08/02/Xcode常用快捷键/#more" rel="contents">
@@ -1206,8 +1230,19 @@
       
         
           
-          
-          
+          1. struct和class的区别swift中，class是引用类型，struct是值类型。值类型在传递和赋值时将进行复制，而引用类型则只会使用引用对象的一个“指向”。所以他们两者之间的区别就是两个类型的区别。class有这几个功能struct没有的：
+* 阿萨德class可以继承，这样子类可以使用父类的特性和方法
+* 类型转换可以在runtime的时候检查和解释一个实例的类型
+* 可以用deinit来释放资源
+* 一个类可以被多次引用
+
+struct也有这样几个优势：
+
+* 结构较小，适用于赋值操作，相对于一个class的实例被多次引用更加安全。
+* 无须担心内存memory leak或者 多线长多线程冲突问题
+
+顺便提一下，array在swift中是用struct实现的。Apple重写过一次array，然后复制就是深度拷贝了。猜测复制是类似参照那样，通过栈上指向堆上位置的指针来实现的
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/NGeLBGithub.io/2016/06/21/答卓同学的iOS面试题/#more" rel="contents">
@@ -1289,7 +1324,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/NGeLBGithub.io/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

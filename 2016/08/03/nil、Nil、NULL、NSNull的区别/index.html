@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="nil：指向一个对象的空指针，对objective-c id对象赋空值Nil：指向一个类的空指针，表示对类进行赋空值NULL：指向其他类型（如：基本类型、c类型）的空指针，用于对非对象指针赋空值NSNull：在集合对象中，表示空值的对象
+
+nil在指向一个对象的指针为空 定义如下：
+ 1234567#ifndef nil# if __has_feature(cxx_nullptr)#   defi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nil、Nil、NULL、NSNull的区别">
 <meta property="og:url" content="https://ngelb.github.io/2016/08/03/nil、Nil、NULL、NSNull的区别/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T09:13:42.000Z">
+<meta property="og:description" content="nil：指向一个对象的空指针，对objective-c id对象赋空值Nil：指向一个类的空指针，表示对类进行赋空值NULL：指向其他类型（如：基本类型、c类型）的空指针，用于对非对象指针赋空值NSNull：在集合对象中，表示空值的对象
+
+nil在指向一个对象的指针为空 定义如下：
+ 1234567#ifndef nil# if __has_feature(cxx_nullptr)#   defi">
+<meta property="og:updated_time" content="2017-02-28T01:59:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nil、Nil、NULL、NSNull的区别">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:description" content="nil：指向一个对象的空指针，对objective-c id对象赋空值Nil：指向一个类的空指针，表示对类进行赋空值NULL：指向其他类型（如：基本类型、c类型）的空指针，用于对非对象指针赋空值NSNull：在集合对象中，表示空值的对象
+
+nil在指向一个对象的指针为空 定义如下：
+ 1234567#ifndef nil# if __has_feature(cxx_nullptr)#   defi">
 
 
 
@@ -325,7 +334,35 @@
       
 
       
-        
+        <p><strong>nil</strong>：指向一个对象的空指针，对objective-c id对象赋空值<br><strong>Nil</strong>：指向一个类的空指针，表示对类进行赋空值<br><strong>NULL</strong>：指向其他类型（如：基本类型、c类型）的空指针，用于对非对象指针赋空值<br><strong>NSNull</strong>：在集合对象中，表示空值的对象</p>
+<ol>
+<li><p>nil在指向一个对象的指针为空 定义如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#ifndef nil</div><div class="line"># if __has_feature(cxx_nullptr)</div><div class="line">#   define nil nullptr</div><div class="line"># else</div><div class="line">#   define nil __DARWIN_NULL</div><div class="line"># endif</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<p> 在Objective-C中用于id类型的对象</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSString *str = nil;</div><div class="line">NSURL    *url  = nil;</div><div class="line">id object      = nil;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>Nil指向一个类的指针为空 定义如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#ifndef Nil</div><div class="line"># if __has_feature(cxx_nullptr)</div><div class="line">#   define Nil nullptr</div><div class="line"># else</div><div class="line">#   define Nil __DARWIN_NULL</div><div class="line"># endif</div><div class="line">#endif</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在Objective-C中用于Class类型的对象</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Class Class1 = Nil;</div><div class="line">Clsss Class2 = [NSURL class];</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li><p>NULL指向c类型的指针为空，在stddef.h中定义如下:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#if defined(__need_NULL)</div><div class="line">#undef NULL</div><div class="line">#ifdef __cplusplus</div><div class="line">#  if !defined(__MINGW32__) &amp;&amp; !defined(_MSC_VER)</div><div class="line">#    define NULL __null</div><div class="line">#  else</div><div class="line">#    define NULL 0</div><div class="line">#  endif</div><div class="line">#else</div><div class="line">#  define NULL ((void*)0)</div><div class="line">#endif</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>用于对非对象指针赋空值简单举例</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int   *intA    = NULL;</div><div class="line">char *charC     = NULL;</div><div class="line">struct structStr = NULL;</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li>NSNull在Objective-C中是一个类<br> NSNull有 <code>+ (NSNull *)null;</code>单例方法<br> 多用于集合(NSArray,NSDictionary)中值为空的对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSArray *array = [NSArray arrayWithObjects:                          [[NSObject alloc] init],</div><div class="line">[NSNull null],                          </div><div class="line">@&quot;aaa&quot;,</div><div class="line">nil,                          </div><div class="line">[[NSObject alloc] init],</div><div class="line">[[NSObject alloc] init], nil];    </div><div class="line">NSLog(@&quot;%ld&quot;, array.count); // 输出 3，NSArray以nil结尾</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:</div><div class="line">                                @&quot;Object0&quot;, @&quot;Key0&quot;,</div><div class="line">                                @&quot;Object1&quot;, @&quot;Key1&quot;,</div><div class="line">                                nil,        @&quot;Key-nil&quot;</div><div class="line">                                @&quot;Object2&quot;, @&quot;Key2&quot;,</div><div class="line">                                nil];</div><div class="line">NSLog(@&quot;%@&quot;, dictionary); // 输出2个key-value,NSDictionary也是以nil结尾</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] init];</div><div class="line">[mutableDictionary setObject:nil forKey:@&quot;Key-nil&quot;]; // 会引起Crash</div><div class="line">[mutableDictionary setObject:[NSNull null] forKey:@&quot;Key-nil&quot;]; // 不会引起Crash</div><div class="line">//所以在使用时，如下方法是比较安全的</div><div class="line">[mutableDictionary setObject:(nil == value ? [NSNull null] : value)</div><div class="line">                      forKey:@&quot;Key&quot;];</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -424,7 +461,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/NGeLBGithub.io/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

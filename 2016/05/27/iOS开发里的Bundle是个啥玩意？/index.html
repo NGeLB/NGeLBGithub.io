@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="初学iOS开发的同学，不管是自己写的，还是粘贴的代码，或多或少都写过下面的代码
+12[[NSBundle mainBundle] pathForResource:@&amp;quot;someFileName&amp;quot; ofType:@&amp;quot;yourFileExtension&amp;quot;]; [YourViewController initWithNibName:&amp;quot;YourViewCon">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发里的Bundle是个啥玩意？">
 <meta property="og:url" content="https://ngelb.github.io/2016/05/27/iOS开发里的Bundle是个啥玩意？/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T09:16:02.000Z">
+<meta property="og:description" content="初学iOS开发的同学，不管是自己写的，还是粘贴的代码，或多或少都写过下面的代码
+12[[NSBundle mainBundle] pathForResource:@&amp;quot;someFileName&amp;quot; ofType:@&amp;quot;yourFileExtension&amp;quot;]; [YourViewController initWithNibName:&amp;quot;YourViewCon">
+<meta property="og:updated_time" content="2017-02-27T06:52:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发里的Bundle是个啥玩意？">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:description" content="初学iOS开发的同学，不管是自己写的，还是粘贴的代码，或多或少都写过下面的代码
+12[[NSBundle mainBundle] pathForResource:@&amp;quot;someFileName&amp;quot; ofType:@&amp;quot;yourFileExtension&amp;quot;]; [YourViewController initWithNibName:&amp;quot;YourViewCon">
 
 
 
@@ -325,7 +328,15 @@
       
 
       
-        
+        <p>初学iOS开发的同学，不管是自己写的，还是粘贴的代码，或多或少都写过下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[NSBundle mainBundle] pathForResource:@&quot;someFileName&quot; ofType:@&quot;yourFileExtension&quot;]; </div><div class="line">[YourViewController initWithNibName:&quot;YourViewController&quot; bundle:nil];</div></pre></td></tr></table></figure>
+<p>可是你知道这里的bundle到底是个啥玩意嘛？<br><strong>Bundle简单地讲，就是一个内部结构按照标准规则组织的特殊目录</strong></p>
+<p>iOS的应用都是通过bundle进行封装的，对应的bundle类型是Application类型，平时我们通过Xcode编译出来的Target（即我们开发的应用），其实就是一个Application类型bundle，即一个文件夹！但是Finder会把这个bundle当做一个文件显示给我们，其实是因为这个bundle自身也是package，而Mac系统会把所有的package当做一个文件来对待，显示给用户，从而防止用户误操作导致程序文件损坏或丢失。至于bundle和package有什么区别，就不在这里展开说明了，本文后面所说的bundle都会被Mac系统视为package。</p>
+<p>现在我们已经知道，原来我们开发的应用程序，最后都会成为一个bundle，那么就不难理解为什么很多资源文件加载大多是通过bundle来进行的了，从bundle进行文件加载实际就是通过应用自己所在的文件夹进行加载。</p>
+<p>不过紧接着我们又会产生好几个疑问：<br>1 为什么不直接使用文件路径的方式获取资源文件呢？<br>2 为什么还会存在pathForResource:ofType:这个方法，难道说我们开发的时候还不确定这些文件在哪儿吗？</p>
+<p>事实上，我们是可以使用文件系统的路径进行资源文件的访问的，不过当我们要进行App的国际化的时候，我们需要自己去实现不同语言、地区情况下加载对应的文件，而在部分资源文件公用，部分需要国际化的时候，对开发人员来讲，代码维护起来尤为混乱。</p>
+<p>而bundle对iOS开发者来讲，最大的方便就是可以非常简单地让自己的应用国际化，在不同的语言不同的地区，加载不同的资源文件，显示不同的语言文字，而实现这些只需要我们严格按照bundle的要求进行资源文件的存放即可，而不需要写大量代码判断地区语言。遵循的方法也很简单，只需要我们创建对应的”本地化文件夹”即可，例如我们要同时让图片”pic.png”在中文和英文下显示不同的内容，只需要创建两个本地化文件夹zh.lproj和en.lproj，分别放入同名但内容不同的”pic.png”即可。</p>
+
       
     </div>
 
@@ -424,7 +435,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/NGeLBGithub.io/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

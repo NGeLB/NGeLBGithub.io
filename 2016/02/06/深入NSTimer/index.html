@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="description" content="You use the NSTimer class to create timer objects or, more simply, timers. A timer waits until a certain time interval has elapsed and then fires, sending a specified message to a target object. For">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入NSTimer">
 <meta property="og:url" content="https://ngelb.github.io/2016/02/06/深入NSTimer/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
-<meta property="og:updated_time" content="2017-02-13T07:05:21.000Z">
+<meta property="og:description" content="You use the NSTimer class to create timer objects or, more simply, timers. A timer waits until a certain time interval has elapsed and then fires, sending a specified message to a target object. For">
+<meta property="og:updated_time" content="2017-02-27T06:05:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入NSTimer">
-<meta name="twitter:description" content="自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。">
+<meta name="twitter:description" content="You use the NSTimer class to create timer objects or, more simply, timers. A timer waits until a certain time interval has elapsed and then fires, sending a specified message to a target object. For">
 
 
 
@@ -325,7 +325,49 @@
       
 
       
-        
+        <blockquote>
+<p>You use the NSTimer class to create timer objects or, more simply, timers. A timer waits until a certain time interval has elapsed and then fires, sending a specified message to a target object. For example, you could create an NSTimer object that sends a message to a window, telling it to update itself after a certain time interval.<br>这段话的意思简单的来说就是NSTimer是一个定时器，能够在每个确定时间间隔里发送信息给对象。</p>
+</blockquote>
+<ul>
+<li>NSTimer和RunLoop</li>
+<li>NSTimer的销毁事件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * 定义一个定时器</div><div class="line"> */</div><div class="line">timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeat:) userInfo:@&#123;@&quot;key&quot;:@&quot;value&quot;&#125; repeats:true];</div></pre></td></tr></table></figure>
+<p>这是定义一个定时器最简单的方法，也许你也就是这么用的，然而这样的使用方法是后患无穷的，比如说你可以尝试这个时候在界面上放上一个scrollView，然后滚动这个scrollView，你会发现在滚动scrollView的时候NSTimer停止了工作。但是你如果把上面那段代码改成下面这段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_global_queue(0, 0), ^&#123;</div><div class="line">    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(repeat:) userInfo:@&#123;@&quot;key&quot;:@&quot;value&quot;&#125; repeats:true];</div><div class="line">    [[NSRunLoop currentRunLoop] run];</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这个时候你再来滚动scrollView，比如说我们定义了一个tableView，这个时候你就会发现和使用最开始那段代码不同的是：我们的NSTimer并没有停止工作。</p>
+<p>这是为什么呢？<br>这里我们引出这篇文章的第一个知识点：RunLoop</p>
+<p>在cocoaTouch框架中RunLoop用来循环处理响应事件（也许描述不是太准确，但是大概就是这个东西），每个线程都有一个RunLoop，苹果不允许自己创建RunLoop，但是提供了两个方法来获取线程的RunLoop：<code>CFRunLoopGetMain()</code>和<code>CFRunLoopGetCurrent()</code>。<br>我们大概已经猜到了NSTimer是被添加到RunLoop中来循环处理，事实也的确如此，我们上面用到的NSTimer创建方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo;</div></pre></td></tr></table></figure>
+<p>这个方法创建好NSTimer以后会自动将它添加到当前线程的RunLoop，所以我们并没有在哪里看到是在什么地方将它添加到RunLoop的，也许我们用下面这个方法你会更加明白：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  创建一个timer ， 并将它添加到当前线程的RunLoop</div><div class="line"> *</div><div class="line"> */</div><div class="line">timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(repeat:) userInfo:@&#123;@&quot;key&quot;:@&quot;value&quot;&#125; repeats:true];</div><div class="line">[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];</div></pre></td></tr></table></figure>
+<p>上面这段代码和第一段代码的效果是一样的，创建一个NSTimer并把他添加到当前线程的RunLoop。<br>也许某些细心的同学已经发现了上面的第二段代码出现了这么一行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[NSRunLoop currentRunLoop] run];</div></pre></td></tr></table></figure>
+<p>这行代码的作用就是打开当前线程的RunLoop，在cocoaTouch框架中只有主线程的RunLoop是默认打开的，而其他线程的RunLoop如果需要使用就必须手动打开，所以如果我们想要添加到主线程的RunLoop的话，是不需要手动打开RunLoop的。好像到目前为止我们好事没有解释为什么在滚动scrollView的时候NSTimer会停止工作，这里就涉及到了RunLoop的几个Model了，他们分别是：</p>
+<blockquote>
+<p>Default model（NSDefaultRunLoopModel）<br>默认模式中几乎包含了所有输入源（NSConnection除外），一般情况下应使用此模式。<br>Connection model（NSConnectionReplyModel）<br>处理NSConnection对象相关事件，系统内部使用，用户基本不会使用。<br>Modal model（NSModalPanelRunLoopModel）<br>在拖动loop或其他user interface tracking loops时处于此种模式下，在此模式下会限制输入事件的处理。例如，当手指按住UITableView拖动时就会处于此模式。<br>Common mode（NSRunLoopCommonModes）<br>这是一个伪模式，其为一组run loop mode的集合，将输入源加入此模式意味着在Common Modes中包含的所有模式下都可以处理。在Cocoa应用程序中，默认情况下Common Modes包含default modes，modal modes，event Tracking modes。可使用CFRunLoopAddCommenMode方法向Common Modes中添加自定义modes。</p>
+</blockquote>
+<p>我们上面的代码，包括第一段代码都是创建NSTimer以后并添加到RunLoop的默认模式<br>—— NSDefaultRunLoopMode，而当我们滚动scrollView的时候RunLoop将会切换到UITrackingRunLoopMode，同时关闭默认模式，而我们的NSTimer很不幸的处于默认模式中，所以当然就停止工作了，而我们的第二段代码同样处于默认模式中，但是由于并不是与主线程处于同一个线程中，所以能够继续工作。<br>除了像第二段代码那样处理，我们还可以这样来处理NSTimer，能够让他在任何情况下工作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(repeat:) userInfo:@&#123;@&quot;key&quot;:@&quot;value&quot;&#125; repeats:true];</div><div class="line">[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];</div></pre></td></tr></table></figure>
+<p>我们将NSTimer放到RunLoop的NSRunLoopCommonModes模式中，如上面所说，这个模式是所有模式的合集，所以在任何环境下都能够工作。</p>
+<p>非常好玩的是我们将NSTimer放在UITrackingRunLoopMode模式下，那么这个NSTimer平时不工作，但是一旦scrollView开始滚动了，这个NSTimer就开始工作了，也许这样的在很特殊的情况下都能有特殊的作用，不过好像我目前还没遇到过。<br>其实终结上面的内容非常简单：</p>
+<ul>
+<li>NSTimer是什么</li>
+<li>NSTimer需要添加到RunLoop</li>
+<li>RunLoop有不同的模式在不同的环境工作</li>
+</ul>
+<p>如果我们不注意NSTimer而直接退出这个页面的话，我们会发现这个页面会发生内存泄漏，而这也就是这篇文章的第二个知识点 —— NSTimer的销毁。<br>我们看到在NSTimer的创建过程中我们引用了<code>taget:self;</code>，所以NSTimer想要销毁必须self先行释放，而self的释放又必须timer进行销毁，这里就发生了循环引用，从而造成了内存泄漏。（这不是弱引用能够解决的）<br>在Apple的文档中告诉我们：<br><code>- (void)invalidate</code><br>是销毁NSTimer的唯一方法，所以我们如果在退出这个页面之前先行调用<code>[timer invalidate];</code>，那么这个页面就不会发生内存泄漏了。我不知道有多少人会这么做：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(void)dealloc&#123;</div><div class="line">    [timer invalidate];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不调用<code>[timer invalidate]</code>永远不会进入<code>dealloc</code>方法，而不进入<code>dealloc</code>方法则永远不会调用<code>[timer invalidate];</code>，这里就又不会发生冲突了，当然如果我们重载Controller的backBarButton的返回动作然后先进行销毁，然后再popController试可以解决这个问题的，但是怎么看这么做都不够优雅。<br>针对这个问题，昨天晚上StrongX封装了一个第三方XTimer，他能够像初始化一个NSTimer一模一样的使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timer = [XTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(XTimerSelector:) userInfo:@&#123;@&quot;key&quot;:@&quot;value&quot;&#125; repeats:true];</div></pre></td></tr></table></figure>
+<p>由于它是由GCD实现的，所以你不用担心它的内存释放问题。<br>同时它拥有NSTimer所不具备的暂停和重新开始的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//重新开始</div><div class="line">[timer reStart];</div><div class="line"></div><div class="line">//暂停</div><div class="line">[timer stop];</div></pre></td></tr></table></figure>
+<p>XTimer也能够像NSTimer一样进行销毁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//销毁Timer</div><div class="line">[timer invalidate];</div></pre></td></tr></table></figure>
+<p>如果你去看XTimer的实现代码，你会发现其实不足100行（其实也就60行代码），如果用swift来写还能够更少，但是Xtimer的确也是产生了一些便捷。</p>
+<p>那么这么好用的XTimer去哪里下载呢？</p>
+<p>github地址：<a href="https://github.com/StrongX/XTimer" target="_blank" rel="external">https://github.com/StrongX/XTimer</a></p>
+
       
     </div>
 
@@ -351,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NGeLBGithub.io/2016/01/13/内边距-contentInset/" rel="next" title="『转载』内边距 contentInset">
-                <i class="fa fa-chevron-left"></i> 『转载』内边距 contentInset
+              <a href="/NGeLBGithub.io/2016/02/03/CPU-VS-GPU/" rel="next" title="『转载』CPU VS GPU">
+                <i class="fa fa-chevron-left"></i> 『转载』CPU VS GPU
               </a>
             
           </div>
@@ -424,7 +466,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/NGeLBGithub.io/">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
