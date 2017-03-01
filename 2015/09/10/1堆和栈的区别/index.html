@@ -1,0 +1,749 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/NGeLBGithub.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/NGeLBGithub.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/NGeLBGithub.io/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="内存," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/NGeLBGithub.io/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="转载自：http://blog.csdn.net/phunxm/article/details/5080948
+
+
+一、预备知识-程序的内存分配一个由C/C++编译的程序占用的内存分为以下几个部分：
+1. 栈区（stack）由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。在执行函数时，函数内局部变量的储存单元都可以在栈上创建，函数执行结束时，这些储存单元自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『转载』堆和栈的区别">
+<meta property="og:url" content="https://ngelb.github.io/2015/09/10/1堆和栈的区别/index.html">
+<meta property="og:site_name" content="NGeLB'S BLOG">
+<meta property="og:description" content="转载自：http://blog.csdn.net/phunxm/article/details/5080948
+
+
+一、预备知识-程序的内存分配一个由C/C++编译的程序占用的内存分为以下几个部分：
+1. 栈区（stack）由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。在执行函数时，函数内局部变量的储存单元都可以在栈上创建，函数执行结束时，这些储存单元自">
+<meta property="og:image" content="http://p.blog.csdn.net/images/p_blog_csdn_net/phunxm/EntryImages/20091226/堆和栈的区别.JPG">
+<meta property="og:updated_time" content="2017-03-01T03:10:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『转载』堆和栈的区别">
+<meta name="twitter:description" content="转载自：http://blog.csdn.net/phunxm/article/details/5080948
+
+
+一、预备知识-程序的内存分配一个由C/C++编译的程序占用的内存分为以下几个部分：
+1. 栈区（stack）由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。在执行函数时，函数内局部变量的储存单元都可以在栈上创建，函数执行结束时，这些储存单元自">
+<meta name="twitter:image" content="http://p.blog.csdn.net/images/p_blog_csdn_net/phunxm/EntryImages/20091226/堆和栈的区别.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/NGeLBGithub.io/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ngelb.github.io/2015/09/10/1堆和栈的区别/"/>
+
+
+
+
+
+  <title> 『转载』堆和栈的区别 | NGeLB'S BLOG </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/NGeLBGithub.io/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">NGeLB'S BLOG</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">95后的程序猿一枚,目前就职于一家初创公司。</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/NGeLBGithub.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/NGeLBGithub.io/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/NGeLBGithub.io/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/NGeLBGithub.io/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/NGeLBGithub.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2015/09/10/1堆和栈的区别/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="NGeLB">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://upload.jianshu.io/users/upload_avatars/1450561/636896afa3bb.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="NGeLB'S BLOG">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="NGeLB'S BLOG" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                『转载』堆和栈的区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-10T12:11:28Z">
+                2015-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGeLBGithub.io/categories/内存/" itemprop="url" rel="index">
+                    <span itemprop="name">内存</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>转载自：<a href="http://blog.csdn.net/phunxm/article/details/5080948" target="_blank" rel="external">http://blog.csdn.net/phunxm/article/details/5080948</a></p>
+</blockquote>
+<hr>
+<h4 id="一、预备知识-程序的内存分配"><a href="#一、预备知识-程序的内存分配" class="headerlink" title="一、预备知识-程序的内存分配"></a><strong>一、预备知识-程序的内存分配</strong></h4><p>一个由C/C++编译的程序占用的内存分为以下几个部分：</p>
+<h5 id="1-栈区（stack）"><a href="#1-栈区（stack）" class="headerlink" title="1. 栈区（stack）"></a>1. <strong>栈区（stack）</strong></h5><p>由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。在执行函数时，函数内局部变量的储存单元都可以在栈上创建，函数执行结束时，这些储存单元自动被释放。栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。</p>
+<h5 id="2-堆区（heap）"><a href="#2-堆区（heap）" class="headerlink" title="2. 堆区（heap）"></a>2. <strong>堆区（heap）</strong></h5><p>从堆上分配，亦称动态内存分配。程序在运行的时候用malloc或new申请任意多少的内存，程序员自己负责在何时用free或delete释放内存。动态内存的生存期由我们决定，使用非常灵活，但是问题也最多。一般由程序员分配、释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。</p>
+<h5 id="3-全局区（静态区）（static）"><a href="#3-全局区（静态区）（static）" class="headerlink" title="3. 全局区（静态区）（static）"></a>3. <strong>全局区（静态区）（static）</strong></h5><p>从静态存储区域分配。内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。例如全局变量，static变量。全局变量和静态变量的储存是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域，程序结束后有系统释放。</p>
+<h5 id="4-文字常量区"><a href="#4-文字常量区" class="headerlink" title="4. 文字常量区"></a>4. <strong>文字常量区</strong></h5><p>常量字符串就是放在这里的。程序结束后由系统释放。</p>
+<h5 id="5-程序代码区"><a href="#5-程序代码区" class="headerlink" title="5. 程序代码区"></a>5. <strong>程序代码区</strong></h5><p>存放函数体的二进制代码。    </p>
+<h5 id="示例程序（这是一个前辈写的，非常详细）"><a href="#示例程序（这是一个前辈写的，非常详细）" class="headerlink" title="示例程序（这是一个前辈写的，非常详细）"></a><strong>示例程序</strong>（这是一个前辈写的，非常详细）</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// main.cpp  </span></div><div class="line"><span class="keyword">int</span> a = <span class="number">0</span>; <span class="comment">// 全局初始化区  </span></div><div class="line"><span class="keyword">char</span> *p1; <span class="comment">// 全局未初始化区  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;   </div><div class="line">    <span class="keyword">int</span> b; <span class="comment">// 栈  </span></div><div class="line">    <span class="keyword">char</span> s[] = <span class="string">"abc"</span>; <span class="comment">// 栈  </span></div><div class="line">    <span class="keyword">char</span> *p2; <span class="comment">// 栈  </span></div><div class="line">    <span class="keyword">char</span> *p3 = <span class="string">"123456"</span>; <span class="comment">// 123456/0在常量区，p3在栈上。  </span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> c =<span class="number">0</span>; <span class="comment">// 全局（静态）初始化区  </span></div><div class="line">    p1 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span>);   </div><div class="line">    p2 = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">20</span>);   </div><div class="line">    <span class="comment">// 分配得来得和字节的区域就在堆区。  </span></div><div class="line">    <span class="built_in">strcpy</span>(p1, <span class="string">"123456"</span>); <span class="comment">// 123456/0放在常量区，编译器可能会将它与p3所指向的"123456"优化成一个地方。  </span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="二、堆和栈的理论知识"><a href="#二、堆和栈的理论知识" class="headerlink" title="二、堆和栈的理论知识"></a><strong>二、堆和栈的理论知识</strong></h4><h5 id="1-申请方式"><a href="#1-申请方式" class="headerlink" title="1. 申请方式"></a>1. <strong>申请方式</strong></h5><p><strong>stack</strong>：由系统自动分配。例如，声明在函数中一个局部变量<code>int b</code>;系统会自动在栈中为<code>b</code>开辟空间。<br><strong>heap</strong>：需要程序自己申请，并指明大小，在c中<code>malloc</code>函数，如<code>p1 = (char *)malloc(10);</code>在C++中用new运算符，如<code>p2 = (char *)malloc(10);</code>但是注意<code>p1</code>、<code>p2</code>本身是在栈中的。</p>
+<h4 id="2-申请后系统的响应"><a href="#2-申请后系统的响应" class="headerlink" title="2. 申请后系统的响应"></a>2. <strong>申请后系统的响应</strong></h4><p><strong>栈</strong>：只要栈的剩余空间大于所申请空间，系统将为程序提供内存，否则将报异常提示栈溢出。<br><strong>堆</strong>：首先应该知道操作系统有一个记录空闲内存地址的链表，当系统收到程序的申请时，会遍历该链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序，另外，对于大多数系统，会在这块内存空间中的首地址处记录本次分配的大小，这样，代码中的delete语句才能正确的释放本内存空间。另外，由于找到的堆结点的大小不一定正好等于申请的大小，系统会自动的将多余的那部分重新放入空闲链表中。</p>
+<h5 id="3-申请大小的限制"><a href="#3-申请大小的限制" class="headerlink" title="3. 申请大小的限制"></a>3. <strong>申请大小的限制</strong></h5><p><strong>栈</strong>：在Windows下，栈是向低地址扩展的数据结构，是一块连续的内存区域。这句话的意思是栈顶的地址和栈的最大容量是系统预先规定好的，在Windeos下，栈的大小是2M（也有说是1M，总之是一个编译时就确定的常数），如果申请的空间超过栈的剩余空间时，将提示overflow。因此，能从栈获得的空间较小。<br><strong>堆</strong>：堆是向高地址扩展的数据结构，是不连续的内存区域。这是由于系统是用链表来储存的空闲内存地址的，自然是不连续的，而链表的遍历方向是由低地址向高地址。堆的大小受限于计算机系统中有效的虚拟内存。由此可见，堆获得的空间比较灵活，也比较大。</p>
+<h5 id="4-申请效率的比较"><a href="#4-申请效率的比较" class="headerlink" title="4. 申请效率的比较"></a>4. <strong>申请效率的比较</strong></h5><p><strong>栈</strong>：栈是由系统自动分配，速度较快。但程序员无法控制的。<br><strong>堆</strong>：堆是由malloc/new分配的内存，一般速度比较慢，而且容易产生内存碎片，不过用起来最方便。<br>另外，在windows下，最好的方式是用VirtualAlloc分配内存，它不是在堆，也不是在栈，是直接在进程的地址空间中保留一块内存，虽然用起来不方便。但是速度快，也最灵活。</p>
+<h5 id="5-堆和栈中的储存内容"><a href="#5-堆和栈中的储存内容" class="headerlink" title="5. 堆和栈中的储存内容"></a>5. <strong>堆和栈中的储存内容</strong></h5><p><strong>栈</strong>：在函数调用时，第一个进栈的是主函数中后的第一条指令（函数调用语句的下一条可执行语句）的地址，然后是函数的各个参数，在大多数的C编译器中，参数是由右往左入栈的，然后是函数中的局部变量。注意静态变量是不入栈的。当本次函数调用结束后，局部变量先出栈，然后是参数，最后栈顶指针指向最开始存的地址，也就是主函数中的下一条指令，程序由该点继续运行.<br><strong>堆</strong>：一般是在堆的头部用一个字节存放堆的大小。堆中的具体内容由程序员安排。</p>
+<h5 id="6-存取效率的比较"><a href="#6-存取效率的比较" class="headerlink" title="6. 存取效率的比较"></a>6. <strong>存取效率的比较</strong></h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> s1[] = <span class="string">"aaaaaaaaaaaaaaa"</span>;</div><div class="line"><span class="keyword">char</span> s2 = <span class="string">"bbbbbbbbbbbbbbb"</span>;</div></pre></td></tr></table></figure>
+<p>aaaaaaaaaaaaaaa是在运行时刻赋值的；而bbbbbbbbbbbbbbb是在编译时就确定的；但是，在以后的存取中，在栈上的数组比指针所指向的字符串（比如堆）快。</p>
+<h5 id="比如："><a href="#比如：" class="headerlink" title="比如："></a><strong>比如</strong>：</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>   </span></div><div class="line">&#123;   </div><div class="line">    <span class="keyword">char</span> a = <span class="number">1</span>;   </div><div class="line">    <span class="keyword">char</span> c[] = <span class="string">"1234567890"</span>;   </div><div class="line">    <span class="keyword">char</span> *p =<span class="string">"1234567890"</span>;   </div><div class="line">    a = c[<span class="number">1</span>];   </div><div class="line">    a = p[<span class="number">1</span>];   </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="对应的汇编代码："><a href="#对应的汇编代码：" class="headerlink" title="对应的汇编代码："></a><strong>对应的汇编代码</strong>：</h5><p>10: a = c[1];<br>00401067 8A 4D F1 mov cl,byte ptr [ebp-0Fh]<br>0040106A 88 4D FC mov byte ptr [ebp-4],cl<br>11: a = p[1];<br>0040106D 8B 55 EC mov edx,dword ptr [ebp-14h]<br>00401070 8A 42 01 mov al,byte ptr [edx+1]<br>00401073 88 45 FC mov byte ptr [ebp-4],al<br>第一种在读取时直接就把字符串中的元素读到寄存器cl中，而第二种则要先把指针值读到edx中，在根据edx读取字符，显然慢了。  </p>
+<h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a><strong>小结</strong>：</h4><p>堆和栈的区别可以用如下的比喻来看出：比如栈就像我们去饭馆吃饭，只管点菜（发出申请）、付钱、和吃（使用），吃饱了就走了，不必理会切菜、洗菜等准备工作和洗碗、刷锅等扫尾工作，他的好处就是快捷，但是自由度小。<br>使用堆就像是自己动手做喜欢的菜肴，比较麻烦，但是比较自己的胃口，而且自由度大。<br>而我们常说的“堆栈”是数据结构中的概念，是一种允许在其一端进行插入或删除的线性表，其基本操作是push入栈和pop出栈。<br><strong>heap</strong>：是由malloc之类函数分配的空间所在地。地址是由低向高增长的。<br><strong>stack</strong>：是自动分配变量，以及函数调用的时候所使用的一些空间。地址是由高向低减少的。</p>
+<p><img src="http://p.blog.csdn.net/images/p_blog_csdn_net/phunxm/EntryImages/20091226/堆和栈的区别.JPG" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/NGeLBGithub.io/tags/内存/" rel="tag"># 内存</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NGeLBGithub.io/2015/10/22/iOS中几种数据持久化方案/" rel="prev" title="『转载』iOS中几种数据持久化方案">
+                『转载』iOS中几种数据持久化方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://upload.jianshu.io/users/upload_avatars/1450561/636896afa3bb.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240"
+               alt="NGeLB" />
+          <p class="site-author-name" itemprop="name">NGeLB</p>
+          <p class="site-description motion-element" itemprop="description">自己平时喜欢逛一些博客和论坛，收录了一些有价值的文章，虽然大部分文章是转载，但是都被重新排版、重新编辑，并且都标明了转载地址。</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/NGeLBGithub.io/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/NGeLBGithub.io/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/NGeLBGithub.io/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/NGeLB" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、预备知识-程序的内存分配"><span class="nav-number">1.</span> <span class="nav-text">一、预备知识-程序的内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-栈区（stack）"><span class="nav-number">1.1.</span> <span class="nav-text">1. 栈区（stack）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-堆区（heap）"><span class="nav-number">1.2.</span> <span class="nav-text">2. 堆区（heap）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-全局区（静态区）（static）"><span class="nav-number">1.3.</span> <span class="nav-text">3. 全局区（静态区）（static）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-文字常量区"><span class="nav-number">1.4.</span> <span class="nav-text">4. 文字常量区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-程序代码区"><span class="nav-number">1.5.</span> <span class="nav-text">5. 程序代码区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#示例程序（这是一个前辈写的，非常详细）"><span class="nav-number">1.6.</span> <span class="nav-text">示例程序（这是一个前辈写的，非常详细）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、堆和栈的理论知识"><span class="nav-number">2.</span> <span class="nav-text">二、堆和栈的理论知识</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-申请方式"><span class="nav-number">2.1.</span> <span class="nav-text">1. 申请方式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-申请后系统的响应"><span class="nav-number">3.</span> <span class="nav-text">2. 申请后系统的响应</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-申请大小的限制"><span class="nav-number">3.1.</span> <span class="nav-text">3. 申请大小的限制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-申请效率的比较"><span class="nav-number">3.2.</span> <span class="nav-text">4. 申请效率的比较</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-堆和栈中的储存内容"><span class="nav-number">3.3.</span> <span class="nav-text">5. 堆和栈中的储存内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-存取效率的比较"><span class="nav-number">3.4.</span> <span class="nav-text">6. 存取效率的比较</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#比如："><span class="nav-number">3.5.</span> <span class="nav-text">比如：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对应的汇编代码："><span class="nav-number">3.6.</span> <span class="nav-text">对应的汇编代码：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结："><span class="nav-number">4.</span> <span class="nav-text">小结：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NGeLB</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/NGeLBGithub.io/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/NGeLBGithub.io/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/NGeLBGithub.io/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/NGeLBGithub.io/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/NGeLBGithub.io/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/NGeLBGithub.io/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/NGeLBGithub.io/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
