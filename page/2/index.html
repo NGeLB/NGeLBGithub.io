@@ -650,7 +650,7 @@ NSTimer和RunLoo
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2016/01/13/内边距-contentInset/">
+  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2016/01/13/17内边距-contentInset/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="NGeLB">
@@ -675,7 +675,7 @@ NSTimer和RunLoo
             
               
                 
-                <a class="post-title-link" href="/NGeLBGithub.io/2016/01/13/内边距-contentInset/" itemprop="url">
+                <a class="post-title-link" href="/NGeLBGithub.io/2016/01/13/17内边距-contentInset/" itemprop="url">
                   『转载』内边距 contentInset
                 </a>
               
@@ -702,6 +702,39 @@ NSTimer和RunLoo
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGeLBGithub.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGeLBGithub.io/categories/iOS/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -731,6 +764,10 @@ NSTimer和RunLoo
         
           
           
+转载自：http://www.jianshu.com/p/0facdc527d8d
+
+
+
 内边距 == 切掉设置区域，内容显示在未切区域
   
 
@@ -750,11 +787,11 @@ titleEdgeInsets
 
 案例
 代码实现
-123456789101112131415161718192021- (void)viewDidLoad &#123;    [super viewDidLoad];    // Do any additional setup after loading the view, typically from a nib.    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];    [btn setImage:[UIImage
+123456789101112131415161718192021- (void)viewDidLoad &#123;    [super viewDidLoad];    // Do any additional setup after loading the view, typically from a nib.    UIButton *btn = [UIButton buttonWithType:U
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/NGeLBGithub.io/2016/01/13/内边距-contentInset/#more" rel="contents">
+            <a class="btn" href="/NGeLBGithub.io/2016/01/13/17内边距-contentInset/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -795,7 +832,7 @@ titleEdgeInsets
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2016/01/02/Xcode中拖入资源弹出的窗口/">
+  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2016/01/02/15Xcode中拖入资源弹出的窗口/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="NGeLB">
@@ -820,7 +857,7 @@ titleEdgeInsets
             
               
                 
-                <a class="post-title-link" href="/NGeLBGithub.io/2016/01/02/Xcode中拖入资源弹出的窗口/" itemprop="url">
+                <a class="post-title-link" href="/NGeLBGithub.io/2016/01/02/15Xcode中拖入资源弹出的窗口/" itemprop="url">
                   『转载』Xcode中拖入资源弹出的窗口
                 </a>
               
@@ -847,6 +884,28 @@ titleEdgeInsets
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGeLBGithub.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -875,18 +934,21 @@ titleEdgeInsets
       
         
           
-          如果将资源文件、文件夹拖入项目中，那么Xcode会弹出一个窗口：
+          
+转载自：http://www.jianshu.com/p/6d78444bea96
+
+
+如果将资源文件、文件夹拖入项目中，那么Xcode会弹出一个窗口：
 Destination：意思是说是否要在项目目录下复制资源  
 如果选中Copy items if needed，那么在项目目录下（这里说的是真是目录，不是Xcode左侧那个），会拷贝一份与拖入的资源相同的资源。  
 如果未选中，则不会进行拷贝，而是对拖入的资源进行引用。  
 这与在代码中进行传值和传址很像。如果选中，则像传值，会拷贝一份，与原来的资源互不影响；如果未选中，则像传址，相当于对原来的资源进行引用。  
 事实上如果未选中，会带来一些问题。比如代码和资源分开（比如不在一个电脑上），那么对原来的资源的引用就失效了，那么资源也就不能用了。  
-并且在删除项目资源的时候也要注意。当删除资源时，会弹出一盒窗口，让我们选择是删除引用还是移到废纸篓。  
-如果选中Copy items if needed，那么会有一份拷贝，所以
+并且在删除项目资源的时候也要注意。当删除资源时，会弹出一盒窗口，让我们选择是删除引用还是
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/NGeLBGithub.io/2016/01/02/Xcode中拖入资源弹出的窗口/#more" rel="contents">
+            <a class="btn" href="/NGeLBGithub.io/2016/01/02/15Xcode中拖入资源弹出的窗口/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1477,7 +1539,7 @@ Main函数入口所有基于c编写的app的入口都是main函数，但iOS应�
           
             <div class="site-state-item site-state-tags">
               <a href="/NGeLBGithub.io/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
