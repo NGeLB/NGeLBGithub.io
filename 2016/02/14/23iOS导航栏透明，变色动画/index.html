@@ -68,7 +68,7 @@
 <link href="/NGeLBGithub.io/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="contentInset," />
+  <meta name="keywords" content="UINavigationController," />
 
 
 
@@ -84,90 +84,36 @@
 
 
 
-<meta name="description" content="转载自：http://www.jianshu.com/p/0facdc527d8d
+<meta name="description" content="转载自：http://www.jianshu.com/p/bcac3a61702f
 
 
+iOS导航栏NavigationBar设置透明，以及添加变色的动画，类似知乎日报的导航栏。  
 
-内边距 == 切掉设置区域，内容显示在未切区域
-  
-
-已按钮为例：
-  
-  
-
-contentEdgeInsets
-
-会把UIImageView和UILabel当做一个整体移动
-
-
-titleEdgeInsets
-那么不会影响到另外一个，也就是只会改变当前设置的这个控件
-
-
-
-案例
-代码实现
-12345">
+透明只需设置NavigationBar的背景图片为一张空图片即可
+1[self.navigationController.navigationBar setBackgroundImage:[UIImage new">
 <meta property="og:type" content="article">
-<meta property="og:title" content="『转载』内边距 contentInset">
-<meta property="og:url" content="https://ngelb.github.io/2016/01/13/17内边距-contentInset/index.html">
+<meta property="og:title" content="『转载』iOS导航栏透明，变色动画">
+<meta property="og:url" content="https://ngelb.github.io/2016/02/14/23iOS导航栏透明，变色动画/index.html">
 <meta property="og:site_name" content="NGeLB'S BLOG">
-<meta property="og:description" content="转载自：http://www.jianshu.com/p/0facdc527d8d
+<meta property="og:description" content="转载自：http://www.jianshu.com/p/bcac3a61702f
 
 
+iOS导航栏NavigationBar设置透明，以及添加变色的动画，类似知乎日报的导航栏。  
 
-内边距 == 切掉设置区域，内容显示在未切区域
-  
-
-已按钮为例：
-  
-  
-
-contentEdgeInsets
-
-会把UIImageView和UILabel当做一个整体移动
-
-
-titleEdgeInsets
-那么不会影响到另外一个，也就是只会改变当前设置的这个控件
-
-
-
-案例
-代码实现
-12345">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-5185b02dd4f7b595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-cbfbd090fdf2ff75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-f9121e891fe629df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/831339-72dbfb70e94bd240.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-01T06:56:44.000Z">
+透明只需设置NavigationBar的背景图片为一张空图片即可
+1[self.navigationController.navigationBar setBackgroundImage:[UIImage new">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1203605-45e1e2c544f06c9c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2017-03-01T07:32:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="『转载』内边距 contentInset">
-<meta name="twitter:description" content="转载自：http://www.jianshu.com/p/0facdc527d8d
+<meta name="twitter:title" content="『转载』iOS导航栏透明，变色动画">
+<meta name="twitter:description" content="转载自：http://www.jianshu.com/p/bcac3a61702f
 
 
+iOS导航栏NavigationBar设置透明，以及添加变色的动画，类似知乎日报的导航栏。  
 
-内边距 == 切掉设置区域，内容显示在未切区域
-  
-
-已按钮为例：
-  
-  
-
-contentEdgeInsets
-
-会把UIImageView和UILabel当做一个整体移动
-
-
-titleEdgeInsets
-那么不会影响到另外一个，也就是只会改变当前设置的这个控件
-
-
-
-案例
-代码实现
-12345">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/831339-5185b02dd4f7b595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+透明只需设置NavigationBar的背景图片为一张空图片即可
+1[self.navigationController.navigationBar setBackgroundImage:[UIImage new">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1203605-45e1e2c544f06c9c.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -195,13 +141,13 @@ titleEdgeInsets
 
 
 
-  <link rel="canonical" href="https://ngelb.github.io/2016/01/13/17内边距-contentInset/"/>
+  <link rel="canonical" href="https://ngelb.github.io/2016/02/14/23iOS导航栏透明，变色动画/"/>
 
 
 
 
 
-  <title> 『转载』内边距 contentInset | NGeLB'S BLOG </title>
+  <title> 『转载』iOS导航栏透明，变色动画 | NGeLB'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -334,7 +280,7 @@ titleEdgeInsets
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2016/01/13/17内边距-contentInset/">
+  <link itemprop="mainEntityOfPage" href="https://ngelb.github.io/NGeLBGithub.io/2016/02/14/23iOS导航栏透明，变色动画/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="NGeLB">
@@ -358,7 +304,7 @@ titleEdgeInsets
             
             
               
-                『转载』内边距 contentInset
+                『转载』iOS导航栏透明，变色动画
               
             
           </h1>
@@ -373,8 +319,8 @@ titleEdgeInsets
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-01-13T03:02:37+08:00">
-                2016-01-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-02-13T20:08:29Z">
+                2016-02-13
               </time>
             
 
@@ -443,30 +389,18 @@ titleEdgeInsets
 
       
         <blockquote>
-<p>转载自：<a href="http://www.jianshu.com/p/0facdc527d8d" target="_blank" rel="external">http://www.jianshu.com/p/0facdc527d8d</a></p>
+<p>转载自：<a href="http://www.jianshu.com/p/bcac3a61702f" target="_blank" rel="external">http://www.jianshu.com/p/bcac3a61702f</a></p>
 </blockquote>
 <hr>
-<ul>
-<li><p>内边距 == 切掉设置区域，内容显示在未切区域</p>
-<p>  <img src="http://upload-images.jianshu.io/upload_images/831339-5185b02dd4f7b595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>已按钮为例：</p>
-<p>  <img src="http://upload-images.jianshu.io/upload_images/831339-cbfbd090fdf2ff75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>  <img src="http://upload-images.jianshu.io/upload_images/831339-f9121e891fe629df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>contentEdgeInsets</p>
-<ul>
-<li>会把UIImageView和UILabel当做一个整体移动</li>
-</ul>
-</li>
-<li>titleEdgeInsets<ul>
-<li>那么不会影响到另外一个，也就是只会改变当前设置的这个控件</li>
-</ul>
-</li>
-</ul>
-<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><p><img src="http://upload-images.jianshu.io/upload_images/831339-72dbfb70e94bd240.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><strong>代码实现</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];</div><div class="line">    [btn setImage:[UIImage imageNamed:@&quot;024&quot;] forState:UIControlStateNormal];</div><div class="line">    [btn setTitle:@&quot;贵宾&quot; forState:UIControlStateNormal];</div><div class="line">    btn.frame = CGRectMake(100, 100, 145, 60);</div><div class="line"></div><div class="line">    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];</div><div class="line"></div><div class="line">    btn.backgroundColor = [UIColor redColor];</div><div class="line">    btn.imageView.backgroundColor = [UIColor greenColor];</div><div class="line">    btn.titleLabel.backgroundColor = [UIColor yellowColor];</div><div class="line"></div><div class="line">    // 上左下右</div><div class="line">    btn.contentEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 0);</div><div class="line">    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);</div><div class="line">//    btn.imageEdgeInsets = UIEdgeInsetsMake(50, 0, 0, 00);</div><div class="line"></div><div class="line">    [self.view addSubview:btn];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>iOS导航栏NavigationBar设置透明，以及添加变色的动画，类似知乎日报的导航栏。  </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1203605-45e1e2c544f06c9c.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<h5 id="透明"><a href="#透明" class="headerlink" title="透明"></a>透明</h5><p>只需设置NavigationBar的背景图片为一张空图片即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsCompact];</div></pre></td></tr></table></figure>
+<p>NavigationBar下边有一个ShadowImage，也可以通过设置空的UIImage设置透明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.navigationController.navigationBar setShadowImage:[UIImage new]];</div></pre></td></tr></table></figure>
+<h5 id="变色动画"><a href="#变色动画" class="headerlink" title="变色动画"></a>变色动画</h5><p>在NavigationBar下插入一个view的透明度即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGRect frame = self.navigationController.navigationBar.frame;</div><div class="line">alphaView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, frame.size.width, frame.size.height+20)];</div><div class="line">alphaView.backgroundColor = [UIColor blueColor];</div><div class="line">alphaView.userInteractionEnabled = NO;</div><div class="line">[self.navigationController.navigationBar insertSubview: alphaView atIndex:0];</div></pre></td></tr></table></figure>
+<p>就这么简单！</p>
 
       
     </div>
@@ -490,7 +424,7 @@ titleEdgeInsets
       
         <div class="post-tags">
           
-            <a href="/NGeLBGithub.io/tags/contentInset/" rel="tag"># contentInset</a>
+            <a href="/NGeLBGithub.io/tags/UINavigationController/" rel="tag"># UINavigationController</a>
           
         </div>
       
@@ -499,8 +433,8 @@ titleEdgeInsets
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/NGeLBGithub.io/2016/01/02/15Xcode中拖入资源弹出的窗口/" rel="next" title="『转载』Xcode中拖入资源弹出的窗口">
-                <i class="fa fa-chevron-left"></i> 『转载』Xcode中拖入资源弹出的窗口
+              <a href="/NGeLBGithub.io/2016/02/06/21深入NSTimer/" rel="next" title="『转载』深入NSTimer">
+                <i class="fa fa-chevron-left"></i> 『转载』深入NSTimer
               </a>
             
           </div>
@@ -509,8 +443,8 @@ titleEdgeInsets
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/NGeLBGithub.io/2016/02/03/19CPU-VS-GPU/" rel="prev" title="『转载』CPU VS GPU">
-                『转载』CPU VS GPU <i class="fa fa-chevron-right"></i>
+              <a href="/NGeLBGithub.io/2016/05/27/iOS开发里的Bundle是个啥玩意？/" rel="prev" title="iOS开发里的Bundle是个啥玩意？">
+                iOS开发里的Bundle是个啥玩意？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -654,7 +588,7 @@ titleEdgeInsets
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#案例"><span class="nav-number">1.</span> <span class="nav-text">案例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#透明"><span class="nav-number">1.</span> <span class="nav-text">透明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变色动画"><span class="nav-number">2.</span> <span class="nav-text">变色动画</span></a></li></ol></div>
             
 
           </div>
